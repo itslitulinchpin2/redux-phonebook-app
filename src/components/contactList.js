@@ -1,12 +1,25 @@
 import React from 'react'
 import SearchBox from './searchBox';
-import ContactItem from './contactItem';
+
+import ContactItems from './contactItems';
+import {useState,useEffect} from 'react'
+import { useSelector } from 'react-redux/es/hooks/useSelector'
 
 const ContactList = () => {
+  const contactList = useSelector(state=>state.contactList)
+  console.log(contactList);
+  
   return (
     <div>
+      
+      
         <SearchBox></SearchBox>
-        <ContactItem></ContactItem>
+        {contactList.map(data=>
+          <ContactItems item={data}></ContactItems>
+        )}
+        
+
+        
     </div>
   )
 }
