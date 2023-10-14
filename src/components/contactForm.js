@@ -24,21 +24,23 @@ const ContactForm = () => {
       //phoneNumber:phoneNumber
       name,phoneNumber
     } });
-
+    event.target.name.value="";
+    event.target.number.value="";
+   
   }
 
   return (
     <Form onSubmit={(event)=>addContact(event)}> 
       <Form.Group className="mb-3" controlId="formName">
         <Form.Label>이름</Form.Label>
-        <Form.Control type="text" placeholder="이름을 입력하세요."
+        <Form.Control type="text" name="name" placeholder="이름을 입력하세요."
           onChange={(event)=>getName(event)}
         />
       </Form.Group>
 
       <Form.Group className="mb-3" controlId="formContact">
         <Form.Label>전화번호</Form.Label>
-        <Form.Control type="number" placeholder="전화번호를 입력하세요." 
+        <Form.Control type="number" name="number" placeholder="전화번호를 입력하세요." 
           onChange={(event)=>getPhoneNumber(event)}/>
       </Form.Group>
       
